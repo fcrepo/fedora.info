@@ -15,6 +15,12 @@
           body { font-family: sans-serif; background: url(assets/cream_pixels.png);}
           header { text-align: center; }
           h1 { font-size: large; }
+          table { border-collapse: collapse; }
+          th, td {
+            border: 2px solid black;
+            padding: 10px;
+            text-align: left;
+          }
         </style>
       </head>
       <body>
@@ -36,7 +42,7 @@
               <xsl:variable name="report_url" select="@url"/>
               <tr>
                 <td>
-                  <a href="{$report_url}"><xsl:value-of select="@implementation"/> <xsl:value-of select="@fedoraversion"/></a>
+                  <a href="{$report_url}"><xsl:value-of select="@implementation"/>&#160;<xsl:value-of select="@fedoraversion"/></a>
                 </td>
                 <td><xsl:value-of select="@testsuiteversion"/></td>
                 <td><xsl:value-of select="@pass"/></td>
