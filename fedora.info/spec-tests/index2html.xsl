@@ -15,23 +15,43 @@
           body { font-family: sans-serif; background: url(assets/cream_pixels.png);}
           header { text-align: center; }
           h1 { font-size: large; }
+          table { border-collapse: collapse; }
+          th, td {
+            border: 2px solid black;
+            padding: 10px;
+            text-align: left;
+          }
         </style>
       </head>
       <body>
         <header>
           <img src="assets/fedora_logo.png"/>
         </header>
-        <xsl:for-each select="pages">
-          <xsl:variable name="title_url" select="@url"/>
-          <h1><a href="{$title_url}"><xsl:value-of select="@title"/></a></h1>
-          <ul>
-            <xsl:for-each select="page">
-              <li>
-                <xsl:variable name="page_url" select="@url"/>
-                <a href="{$page_url}"><xsl:value-of select="@id"/></a>
-              </li>
+        <xsl:for-each select="reports">
+          <h1><xsl:value-of select="@title"/></h1>
+          <table>
+            <thead>
+              <th>Fedora Implementation and Version</th>
+              <th>Test Suite Version</th>
+              <th>Pass</th>
+              <th>Fail</th>
+              <th>Skip</th>
+            </thead>
+            <tbody>
+            <xsl:for-each select="report">
+              <xsl:variable name="report_url" select="@url"/>
+              <tr>
+                <td>
+                  <a href="{$report_url}"><xsl:value-of select="@implementation"/>&#160;<xsl:value-of select="@fedoraversion"/></a>
+                </td>
+                <td><xsl:value-of select="@testsuiteversion"/></td>
+                <td><xsl:value-of select="@pass"/></td>
+                <td><xsl:value-of select="@fail"/></td>
+                <td><xsl:value-of select="@skip"/></td>
+              </tr>
             </xsl:for-each>
-          </ul>
+          </tbody>
+          </table>
         </xsl:for-each>
 
         <xsl:for-each select="items/item">

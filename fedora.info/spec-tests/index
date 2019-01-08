@@ -2,7 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="index2html.xsl"?>
 
 <index>
-  <pages title="Fedora API Specification Test Results" url="https://github.com/fcrepo/Fedora-API-Test-Suite">
-    <page id="Fedora Commons Repository 5.0.0" url="fcrepo/5.0.0/testsuite-execution-report.html"/>
-  </pages>
+  <reports title="Fedora API Specification Test Results" url="https://github.com/fcrepo/Fedora-API-Test-Suite">
+    <report implementation="Fedora Commons Repository" 
+            fedoraversion="5.0.0"  
+            testsuiteversion="1.0-SNAPSHOT #f3dd2010" 
+            url="fcrepo/5.0.0/testsuite-execution-report.html" 
+            pass="203" 
+            fail="10" 
+            skip="25"/>
+  </reports>
 </index>
